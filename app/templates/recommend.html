@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %} SakeOrb: Recommendation List {% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Distance</th>
+        <th scope="col">Sake Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">SMV</th>
+        <th scope="col">Acidity</th>
+        <th scope="col">Amakara</th>
+        <th scope="col">Notan</th>
+        <th scope="col">ABV</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dist, data in recommend %}
+        <tr>
+          <td>{{ dist }}</td>
+          <td>{{ data.Sake_Product_Name }}</td>
+          <td>{{ data.Type }}</td>
+          <td>{{ data.SMV }}</td>
+          <td>{{ data.Acidity }}</td>
+          <td>{{ data.Amakara }}</td>
+          <td>{{ data.Notan }}</td>
+          <td>{{ data.ABV }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

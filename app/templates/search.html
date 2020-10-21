@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %} SakeOrb: Sake Search Result {% endblock %}
+
+{% block content %}
+<form action="search" method="POST">
+  <div class="container">
+    <!-- {{form.hidden_tag()}} -->
+    <!-- {{form.selectsake}} -->
+
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Sake Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">SMV</th>
+          <th scope="col">Acidity</th>
+          <th scope="col">Amakara</th>
+          <th scope="col">Notan</th>
+          <th scope="col">ABV</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{form.hidden_tag()}}
+        {% for radio, data in table %}
+          <tr>
+            <td>{{ radio }}</td>
+            <td>{{ radio.label }}</td>
+            <td>{{ data.Type }}</td>
+            <td>{{ data.SMV }}</td>
+            <td>{{ data.Acidity }}</td>
+            <td>{{ data.Amakara }}</td>
+            <td>{{ data.Notan }}</td>
+            <td>{{ data.ABV }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+</form>
+{% endblock %}
